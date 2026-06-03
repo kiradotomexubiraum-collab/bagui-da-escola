@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --green-deep:  #1a3a2a;
+  --green-mid:   #2e6b44;
+  --green-light: #4caf7a;
+  --cream:       #f5f0e8;
+  --sand:        #e8dfc8;
+  --text:        #1e2d22;
+  --muted:       #6b7c6e;
+}
+
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+/* ── Header ── */
+header {
+  background: var(--green-deep);
+  padding: 48px 24px 36px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 60%, rgba(76,175,122,.18) 0%, transparent 65%),
+    radial-gradient(ellipse at 75% 30%, rgba(46,107,68,.25) 0%, transparent 60%);
+}
+
+header .leaf-deco {
+  font-size: 64px;
+  display: block;
+  margin-bottom: 12px;
+  animation: sway 4s ease-in-out infinite;
+  position: relative;
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(-4deg); }
+  50%       { transform: rotate(4deg);  }
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.7rem, 5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--cream);
+  letter-spacing: .02em;
+  position: relative;
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.25;
+}
+
+header h1 span {
+  color: var(--green-light);
+}
+
+.byline {
+  margin-top: 10px;
+  font-size: .85rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,.55);
+  position: relative;
+}
+
+/* ── Article ── */
+article {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 56px 24px 80px;
+}
+
+/* ── Hero image ── */
+.hero-image-wrap {
+  width: 100%;
+  margin-bottom: 40px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(30,45,34,.18);
+}
+
+.hero-image-wrap svg {
+  display: block;
+  width: 100%;
+  max-height: 460px;
+}
+
+.img-caption {
+  background: var(--green-deep);
+  color: rgba(245,240,232,.72);
+  font-size: .8rem;
+  font-style: italic;
+  padding: 10px 16px;
+  letter-spacing: .03em;
+}
+
+/* ── Drop cap ── */
+p.intro::first-letter {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.2em;
+  float: left;
+  line-height: .82;
+  margin-right: .08em;
+  margin-top: .06em;
+  color: var(--green-mid);
+}
+
+/* ── Paragraphs ── */
+article p {
+  margin-bottom: 1.6em;
+  font-size: 1.05rem;
+  font-weight: 300;
+}
+
+/* ── Pull quote ── */
+.pull-quote {
+  border-left: 4px solid var(--green-light);
+  margin: 2.4em 0;
+  padding: 12px 24px;
+  background: var(--sand);
+  border-radius: 0 4px 4px 0;
+}
+
+.pull-quote p {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--green-deep);
+  margin: 0;
+}
+
+/* ── Section divider ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 2.4em 0 2em;
+  color: var(--muted);
+  font-size: .8rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--sand);
+}
+
+/* ── Footer ── */
+footer {
+  background: var(--green-deep);
+  color: rgba(245,240,232,.55);
+  text-align: center;
+  padding: 28px 16px;
+  font-size: .82rem;
+  letter-spacing: .08em;
+}
+
+footer span {
+  color: var(--green-light);
+}
+
+/* ── Fade-in on scroll ── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+  }
